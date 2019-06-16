@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Which key?</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .key-box {
+            width:100px;
+            height:100px;
+            background-color:lightgrey;
+            border-radius:15px;
+            border-right:5px solid grey;
+            border-bottom: 8px solid grey;
+            border: 0px 0px 0px 3px solid black;
+            display: inline-block;
+            margin-top:20px;
+            line-height: 70px;
+        }
+
+        .pressed {
+            border-right:1px solid grey;
+            border-bottom: 1px solid grey;
+        }
+
+        .text {
+            margin-top:90px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+            <article class="text">
+                    <p>Press any keyboard key to see which is its code value.</p>
+                </article>
+        <article class="key-box" id="key-box">
+            <p id="number-key">0</p>
+        </article>
+    </section>
+
+    <script>
+        window.addEventListener('keypress', function(e) {
+            document.getElementById('number-key').textContent = e.keyCode;
+            document.getElementById('key-box').classList.add("pressed");
+
+            setTimeout(function(){
+                document.getElementById('key-box').classList.remove("pressed")
+            },100)
+        })
+    </script>
+</body>
+</html>
